@@ -49,6 +49,6 @@ export class ArtistService {
     if (environment.enableMock) {
       return of(albums.data);
     }
-    return this.http.get<IAlbum[]>(ArtistApi.albums(artistId))
+    return this.http.get<IAlbum[]>(ArtistApi.albums(artistId));
   }
 }

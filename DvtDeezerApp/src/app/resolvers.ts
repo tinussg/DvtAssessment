@@ -35,8 +35,7 @@ export class GetArtistResolver implements Resolve<IArtist> {
     let artist: IArtist;
     this.artistService.Data.subscribe(art => artist = art);
 
-    if (!artist)
-    {
+    if (!artist) {
       return this.artistService.getArtist(artistId);
     } else {
       return of(artist);
