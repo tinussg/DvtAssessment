@@ -10,9 +10,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArtistDetailsComponent } from './artist-details/artist-details.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { TracksComponent } from './tracks/tracks.component';
-import { GetyearPipe } from './getyear.pipe';
+import { GetyearPipe } from './pipes/getyear.pipe';
 import { ThousandformatterPipe } from './pipes/thousandformatter.pipe';
-
+import { GetAlbumResolver, GetArtistDetailsResolver, GetArtistResolver } from './resolvers';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +32,11 @@ import { ThousandformatterPipe } from './pipes/thousandformatter.pipe';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    GetArtistDetailsResolver,
+    GetArtistResolver,
+    GetAlbumResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
