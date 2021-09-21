@@ -9,13 +9,15 @@ import { MaterialModule } from './shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArtistDetailsComponent } from './artist-details/artist-details.component';
 import { AlbumsComponent } from './albums/albums.component';
+import { TracksComponent } from './tracks/tracks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     ArtistDetailsComponent,
-    AlbumsComponent
+    AlbumsComponent,
+    TracksComponent
   ],
   imports: [
     BrowserModule,
