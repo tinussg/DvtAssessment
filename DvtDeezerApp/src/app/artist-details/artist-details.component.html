@@ -6,6 +6,7 @@
         <div id="name">{{ artist.name }}</div>
         <div id="fans">{{ artist.nb_fan | thousandformatter }} Fans</div>
       </div>
+      <app-tracks [tracks]="topTracks" class="tracks"></app-tracks>
     </div>
 
   <div id="albums">

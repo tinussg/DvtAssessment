@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ArtistService } from '../root-services/artist.service';
 import { Location } from '@angular/common';
@@ -23,6 +23,8 @@ export class ArtistDetailsComponent implements OnInit {
     ) {
       this.artistService.Data.subscribe(artist => this.artist = artist);
       this.route.data.subscribe(({topTracks, artist, albums}) => this.mapData(topTracks, artist, albums));
+
+      this.mediaQeurie();
     }
 
   ngOnInit(): void {
@@ -37,4 +39,26 @@ export class ArtistDetailsComponent implements OnInit {
   back() {
     this.location.back();
   }
+
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.mediaQeurie();
+  }
+
+  mediaQeurie() {
+    const mediaQueryMobile = window.matchMedia('(min-width: 480px)');
+    const mediaQueryTablet = window.matchMedia('(min-width: 600px)');
+    const mediaQueryDesktop = window.matchMedia('(min-width: 1024px)');
+
+    if (mediaQueryMobile.matches)
+      this.artistImg = this.artist.picture_small;
+
+    if (mediaQueryTablet.matches)
+      this.artistImg = this.artist.picture_medium;
+
+    if (mediaQueryDesktop.matches)
+      this.artistImg = this.artist.picture_big;
+  }
+
 }

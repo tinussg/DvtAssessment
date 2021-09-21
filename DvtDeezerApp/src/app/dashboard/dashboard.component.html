@@ -18,21 +18,20 @@
 
 <ng-component *ngIf="this.artists?.length > 0; then showArtists; else noData"></ng-component>
 
-
 <ng-template #showArtists>
   <div class="artists-container">
       <ng-container *ngFor="let artist of artists">
         <div class="container">
           <mat-card class="card">
             <mat-card-header>
-              <img mat-card-avatar src="{{artist.picture_medium}}" class="header-image" alt="artist Image">
+              <img mat-card-avatar src="{{ artist.picture_medium }}" class="header-image" alt="artist Image">
               <mat-card-title>{{ artist.name }}</mat-card-title>
               <mat-card-subtitle>{{ artist.nb_fan | thousandformatter }} Fans</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
               <a [routerLink]="" (click)="viewDetails(artist)">
                 <div>
-                    <img src="{{artist.picture_medium}}" alt="artist Image">
+                    <img src="{{ artist.picture_medium }}" alt="artist Image">
                 </div>
             </a>
             </mat-card-content>
