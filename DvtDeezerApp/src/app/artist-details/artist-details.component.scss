@@ -1,0 +1,71 @@
+.container {
+  margin-top: 5px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+  text-align: left;
+}
+
+#back {
+  background-color:  var(--background-dark);
+  color: white;
+}
+
+.tracks {
+  width: 100%;
+}
+
+#albums {
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+@media only screen and (min-device-width: 650px) {
+  .top-left {
+    color: white;
+    position: absolute;
+    top: 8px;
+    left: 16px;
+  }
+
+  #back {
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+}
+
+@media only screen and (max-device-width: 650px) {
+  .container {
+    margin-top: 5px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    text-align: left;
+  }
+  #name {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  #fans {
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: underline;
+  }
+
+  #albums {
+    margin-left: 10px;
+  }
+
+  #back {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+}
+
+

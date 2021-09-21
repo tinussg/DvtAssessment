@@ -4,7 +4,7 @@
       <img src="{{ this.artistImg }}"  alt="artist Image">
       <div class="top-left">
         <div id="name">{{ artist.name }}</div>
-        <div id="fans">{{ artist.nb_fan }} Fans</div>
+        <div id="fans">{{ artist.nb_fan | thousandformatter }} Fans</div>
       </div>
     </div>
 

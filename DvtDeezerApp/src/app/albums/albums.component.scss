@@ -1,0 +1,38 @@
+#albumTitle {
+  font-weight: bold;
+}
+
+.container {
+  margin-top: 5px;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+  text-align: left;
+}
+
+.card-container {
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  text-align: left;
+}
+
+@media only screen and (max-device-width: 700px) {
+  .container {
+    margin-top: 5px;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    text-align: left;
+  }
+
+  .card-container {
+    margin-bottom: 10px;
+  }
+}
