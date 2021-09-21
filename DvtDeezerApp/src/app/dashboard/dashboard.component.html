@@ -2,13 +2,14 @@
   <mat-form-field class="full-width" appearance="fill">
     <mat-label>Search Artist</mat-label>
     <input type="text"
+            class="search-button"
             placeholder="search"
             aria-label="Search"
             matInput
             [formControl]="searchControl"
             [matAutocomplete]="auto">
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option *ngFor="let artist of filteredArtists | async" [value]="artist">
+      <mat-option *ngFor="let artist of filteredArtists | async" [value]="artist.name">
         {{artist.name}}
       </mat-option>
     </mat-autocomplete>
