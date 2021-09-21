@@ -6,7 +6,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   exports: [
     MatAutocompleteModule,
@@ -16,6 +16,7 @@ import {MatTableModule} from '@angular/material/table';
     MatInputModule,
     MatListModule,
     MatTableModule,
+    MatProgressSpinnerModule,
   ]
 })
 export class MaterialModule {}

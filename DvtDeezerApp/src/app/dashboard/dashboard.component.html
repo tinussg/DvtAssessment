@@ -2,45 +2,40 @@
   <mat-form-field class="full-width" appearance="fill">
     <mat-label>Search Artist</mat-label>
     <input type="text"
-            class="search-button"
+            class="search"
             placeholder="search"
             aria-label="Search"
             matInput
-            [formControl]="searchControl"
-            [matAutocomplete]="auto">
-    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option *ngFor="let artist of filteredArtists | async" [value]="artist.name">
-        {{artist.name}}
-      </mat-option>
-    </mat-autocomplete>
+            [(ngModel)]="searchQuery"
+            >
+  <button mat-button (click)="search()">Search</button>
+
   </mat-form-field>
 </ng-container>
 
-<ng-component *ngIf="this.artists?.length > 0; then showArtists; else noData"></ng-component>
+<div class="artists-container">
+    <div *ngFor="let artist of artists | async">
+      <div class="container">
+        <mat-card class="card">
+          <mat-card-header>
+            <img mat-card-avatar src="{{ artist.picture_medium }}" class="header-image" alt="artist Image">
+            <mat-card-title>{{ artist.name }}</mat-card-title>
+            <mat-card-subtitle>{{ artist.nb_fan | thousandformatter }} Fans</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <a [routerLink]="" (click)="viewDetails(artist)">
+              <div>
+                  <img src="{{ artist.picture_medium }}" alt="artist Image">
+              </div>
+          </a>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+</div>
 
-<ng-template #showArtists>
-  <div class="artists-container">
-      <ng-container *ngFor="let artist of artists">
-        <div class="container">
-          <mat-card class="card">
-            <mat-card-header>
-              <img mat-card-avatar src="{{ artist.picture_medium }}" class="header-image" alt="artist Image">
-              <mat-card-title>{{ artist.name }}</mat-card-title>
-              <mat-card-subtitle>{{ artist.nb_fan | thousandformatter }} Fans</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-              <a [routerLink]="" (click)="viewDetails(artist)">
-                <div>
-                    <img src="{{ artist.picture_medium }}" alt="artist Image">
-                </div>
-            </a>
-            </mat-card-content>
-          </mat-card>
-        </div>
-      </ng-container>
-  </div>
-</ng-template>
 
 <ng-template #noData>
+
   <mat-label class="no-data ">No data to display</mat-label>
 </ng-template>
