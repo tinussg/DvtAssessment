@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { artist, artists, artistTopTracks } from 'src/assets/mock/mock-data';
+import { albums, artist, artists, artistTopTracks } from 'src/assets/mock/mock-data';
 import { environment } from 'src/environments/environment';
-import { IArtist, IArtistTopTracks } from '../shared/types';
+import { IAlbum, IArtist, IArtistTopTracks } from '../shared/types';
 import { ArtistApi } from './api';
 
 @Injectable({
@@ -13,11 +13,15 @@ export class ArtistService {
 
   private data: BehaviorSubject<IArtist> = new BehaviorSubject<IArtist>(null);
 
-  public get Data(): Observable<IArtist>{
+  public get Data(): Observable<IArtist> {
     return this.data.asObservable();
   }
 
   constructor(private readonly http: HttpClient) { }
+
+  setArtist(artist: IArtist): void {
+    this.data.next(artist);
+  }
 
   searchArtist(searchString: string): Observable<IArtist[]> {
     if (environment.enableMock) {
@@ -38,5 +42,13 @@ export class ArtistService {
       return of(artist);
     }
     return this.http.get<IArtist>(ArtistApi.artist(artistId));
+  }
+
+
+  getAlbums(artistId: number): Observable<IAlbum[]> {
+    if (environment.enableMock) {
+      return of(albums.data);
+    }
+    return this.http.get<IAlbum[]>(ArtistApi.albums(artistId))
   }
 }

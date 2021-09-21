@@ -520,3 +520,46 @@ export const artist = {
   tracklist: 'https://api.deezer.com/artist/27/top?limit=50',
   type: 'artist'
 };
+
+export const albums = {
+  data: [
+    {
+      id: 8244118,
+      title: 'Human After All (Remixes)',
+      link: 'https://www.deezer.com/album/8244118',
+      cover: 'https://api.deezer.com/album/8244118/image',
+      cover_small: 'https://cdns-images.dzcdn.net/images/cover/f6a4dbf47cb8828c281ed4e63364f99e/56x56-000000-80-0-0.jpg',
+      cover_medium: 'https://cdns-images.dzcdn.net/images/cover/f6a4dbf47cb8828c281ed4e63364f99e/250x250-000000-80-0-0.jpg',
+      cover_big: 'https://cdns-images.dzcdn.net/images/cover/f6a4dbf47cb8828c281ed4e63364f99e/500x500-000000-80-0-0.jpg',
+      cover_xl: 'https://cdns-images.dzcdn.net/images/cover/f6a4dbf47cb8828c281ed4e63364f99e/1000x1000-000000-80-0-0.jpg',
+      md5_image: 'f6a4dbf47cb8828c281ed4e63364f99e',
+      genre_id: 113,
+      fans: 29510,
+      release_date: '2005-03-20',
+      record_type: 'album',
+      tracklist: 'https://api.deezer.com/album/8244118/tracks',
+      explicit_lyrics: false,
+      type: 'album'
+    },
+    {
+      id: 6575789,
+      title: 'Random Access Memories',
+      link: 'https://www.deezer.com/album/6575789',
+      cover: 'https://api.deezer.com/album/6575789/image',
+      cover_small: 'https://cdns-images.dzcdn.net/images/cover/b298094528702627877720d0be4448b5/56x56-000000-80-0-0.jpg',
+      cover_medium: 'https://cdns-images.dzcdn.net/images/cover/b298094528702627877720d0be4448b5/250x250-000000-80-0-0.jpg',
+      cover_big: 'https://cdns-images.dzcdn.net/images/cover/b298094528702627877720d0be4448b5/500x500-000000-80-0-0.jpg',
+      cover_xl: 'https://cdns-images.dzcdn.net/images/cover/b298094528702627877720d0be4448b5/1000x1000-000000-80-0-0.jpg',
+      md5_image: 'b298094528702627877720d0be4448b5',
+      genre_id: 132,
+      fans: 791869,
+      release_date: '2013-05-17',
+      record_type: 'album',
+      tracklist: 'https://api.deezer.com/album/6575789/tracks',
+      explicit_lyrics: false,
+      type: 'album'
+    }
+  ],
+  total: 32,
+  next: 'https://api.deezer.com/artist/27/albums?index=25'
+};

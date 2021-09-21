@@ -47,6 +47,7 @@ export class DashboardComponent implements OnInit {
   }
 
   viewDetails(artist: IArtist): void {
+    this.artistService.setArtist(artist);
     this.router.navigate(['/details', artist.id]);
   }
 }

@@ -8,12 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArtistDetailsComponent } from './artist-details/artist-details.component';
+import { AlbumsComponent } from './albums/albums.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    ArtistDetailsComponent
+    ArtistDetailsComponent,
+    AlbumsComponent
   ],
   imports: [
     BrowserModule,
