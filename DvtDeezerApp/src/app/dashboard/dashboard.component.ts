@@ -5,6 +5,7 @@ import { IArtist } from '../shared/types';
 import { map, startWith } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { isNonNull } from '../shared/utils';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -22,6 +23,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private readonly artistService: ArtistService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -42,6 +44,10 @@ export class DashboardComponent implements OnInit {
       this.artistService.searchArtist(searchQuery)
       .subscribe(a => this.artists = a);
     }
+  }
+
+  viewDetails(artist: IArtist): void {
+    this.router.navigate(['/details', artist.id]);
   }
 }
 
