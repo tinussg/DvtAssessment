@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -13,6 +13,10 @@ import { TracksComponent } from './tracks/tracks.component';
 import { GetyearPipe } from './pipes/getyear.pipe';
 import { ThousandformatterPipe } from './pipes/thousandformatter.pipe';
 import { GetAlbumResolver, GetArtistDetailsResolver, GetArtistResolver } from './resolvers';
+import { LoaderService } from './shared/loader.service';
+import { LoaderInterceptor } from './shared/loader.interceptor';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,12 +34,15 @@ import { GetAlbumResolver, GetArtistDetailsResolver, GetArtistResolver } from '.
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule
   ],
   providers: [
     GetArtistDetailsResolver,
     GetArtistResolver,
-    GetAlbumResolver
+    GetAlbumResolver,
+    LoaderService,
+    {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor,	multi: true}
   ],
   bootstrap: [AppComponent]
 })
