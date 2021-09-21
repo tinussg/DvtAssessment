@@ -40,3 +40,12 @@ button:hover {
   color: white;
 }
 
+::ng-deep input.mat-input-element {
+  color: white;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: white !important;
+}
+
+
