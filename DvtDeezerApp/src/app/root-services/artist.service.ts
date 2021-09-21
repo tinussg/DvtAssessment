@@ -19,8 +19,8 @@ export class ArtistService {
 
   constructor(private readonly http: HttpClient) { }
 
-  setArtist(artist: IArtist): void {
-    this.data.next(artist);
+  setArtist(artistData: IArtist): void {
+    this.data.next(artistData);
   }
 
   searchArtist(searchString: string): Observable<IArtist[]> {
