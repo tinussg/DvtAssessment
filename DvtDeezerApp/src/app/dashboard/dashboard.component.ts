@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   public artists: Observable<IArtist[]>;
   public artist: IArtist;
   public filteredArtists: any;
-  public searchQuery: string;
+  public searchQuery: string = environment.defaultSearch;
   public get mockEnabled(): boolean {
     return environment.enableMock;
   }
@@ -35,9 +35,6 @@ export class DashboardComponent implements OnInit {
 
   searchArtist(query: string = null): void {
     if (!this.mockEnabled || (this.searchQuery !== '' && isNonNull(this.searchQuery))) {
-      this.searchQuery ? this.searchQuery : query;
-      console.log("DashboardComponent ~ searchArtist ~ this.searchQuery", this.searchQuery);
-
       this.artists = this.artistService
       .searchArtist(this.searchQuery)
       .pipe(map(a => a.data))
