@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArtistDetailsComponent } from './artist-details/artist-details.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { TracksComponent } from './tracks/tracks.component';
+import { GetyearPipe } from './getyear.pipe';
+import { ThousandformatterPipe } from './pipes/thousandformatter.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { TracksComponent } from './tracks/tracks.component';
     DashboardComponent,
     ArtistDetailsComponent,
     AlbumsComponent,
-    TracksComponent
+    TracksComponent,
+    GetyearPipe,
+    ThousandformatterPipe
   ],
   imports: [
     BrowserModule,
